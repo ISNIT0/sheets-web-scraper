@@ -89,7 +89,7 @@ async function emailTask({ page, data: { url, scrapedUrls } }: { page: Page, dat
                 const emailLeftClean = emailLeftFull.split(/[^\.0-9A-z_-]/g).slice(-1)[0];
                 const emailRightClean = emailRightFull.split(/[^\.0-9A-z_-]/g)[0];
 
-                if(!emailLeftClean) return [];
+                if (!emailLeftClean) return [];
                 const email = emailLeftClean + '@' + emailRightClean;
 
                 const nextStr = str.slice(index);
@@ -139,6 +139,7 @@ async function start() {
         maxConcurrency: 10,
         puppeteerOptions: {
             // headless: false,
+            args: ['--no-sandbox'],
         }
     });
 
